@@ -1,10 +1,9 @@
 package com.potters.userservice.dto;
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
+
+import java.util.Set;
 
 @Data
 @ToString
@@ -20,4 +19,6 @@ public class UserDTO {
     @Min(value = 18, message = "Age must be greater than 18 or equals to 18")
     @Max(value = 100, message = "Invalid Age: Exceeds 100 years")
     private Integer age;
+
+    private Set<AddressDTO> addresses;
 }

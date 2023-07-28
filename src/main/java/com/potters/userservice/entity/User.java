@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,4 +23,7 @@ public class User {
   private String email;
   private String phoneNo;
   private Integer age;
+  @OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
+  private Set<Address> addresses = new HashSet<>();
 }
